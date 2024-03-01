@@ -1,0 +1,40 @@
+
+<div
+  *ngIf="countries.length === 0; else table "
+  class="alert alert-warning text-center">
+  No hay paises
+</div>
+
+<ng-template #table>
+
+  <table class="table table-dark text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Flag</th>
+        <th scope="col">Name</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Population</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let country of countries; let i = index" class="">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{country.flag}}</td>
+        <td>
+          <img [src]="country.flags.svg" [alt]="country.name.common" width="60px">
+        </td>
+        <td>{{country.name.common}}</td>
+        <td>{{country.capital}}</td>
+        <td>{{country.population | number}}</td>
+        <td><a [routerLink]="['/countries/by', country.cca3]">Info</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</ng-template>
+
+

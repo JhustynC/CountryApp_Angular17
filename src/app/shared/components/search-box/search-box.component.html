@@ -1,0 +1,14 @@
+<div class="input-group ">
+
+  <button type="button" class="btn btn-outline-primary" (click)="emitText()">search</button>
+
+  <input
+  type="text"
+  class="form-control"
+  [value]="initialValue"
+  [placeholder]="placeholderText"
+  (keyup.enter)="emitText()"
+  (keyup)="onKeyPress(txtInput.value)"
+  #txtInput>
+  
+</div>

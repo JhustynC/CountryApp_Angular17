@@ -1,0 +1,73 @@
+
+<ng-template #loading>
+  <div class="alert alert-info text-center">
+    <div class="mb-2">
+      Wait Please...
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="spinner-border text-primary spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="country; else loading">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Country: <strong>{{country.name.common}}</strong></h2>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <h3>Flag</h3>
+      <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+    </div>
+
+    <div class="col-1">
+      <div class="d-flex" style="height: 100%;">
+        <div class="vr"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h3>Information</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Pupolation: </strong> {{country.population |  number}}
+        </li>
+
+        <li class="list-group-item">
+          <strong>Code: </strong> {{country.cca3}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col">
+      <h3>Translations</h3>
+      <div class="d-flex flex-wrap">
+        Idiomas:
+        <span class="badge bg-primary m-1">{{country.translations['bre'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['ara'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['ces'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['deu'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['est'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['hun'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['kor'].common}}</span>
+        <span class="badge bg-primary m-1">{{country.translations['per'].common}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
